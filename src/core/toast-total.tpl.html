@@ -1,0 +1,11 @@
+<md-toast>
+    <span style="font-size: 1.2em;" flex>
+
+        <span  ng-if="!vm.processingOrder">Your Total: ${{vm.cartService.getOrderTotal()}}</span>
+        <span ng-if="vm.processingOrder">Processing Order...</span>
+    </span>
+    <md-button ng-if="vm.$state.current.name !== 'cart'" class="md-accent" ng-click="vm.go('cart')">
+        Checkout
+    </md-button>
+    <md-button ng-disabled="vm.processingOrder" ng-click="vm.pay($event)" ng-if="vm.$state.current.name === 'cart'" class="md-accent md-raised">Pay</md-button>
+</md-toast>

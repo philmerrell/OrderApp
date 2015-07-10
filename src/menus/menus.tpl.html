@@ -1,0 +1,12 @@
+<md-grid-list
+        md-cols-sm="2" md-cols-md="3" md-cols-lg="3" md-cols-gt-lg="4"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px">
+    <!-- ui-sref="degrees.detail({id: degree.UrlId})" -->
+    <md-grid-tile style="cursor: pointer;" ui-sref="menus.detail({id: 'fast-foodie'})" ng-repeat="place in ['Fast Foodie']">
+        <img width="100%" src="http://img2.timeinc.net/health/images/slides/eat-light-lunch-sandwich-400x400.jpg">
+        <md-grid-tile-footer>
+            <h3>{{place}}</h3>
+        </md-grid-tile-footer>
+    </md-grid-tile>
+</md-grid-list>

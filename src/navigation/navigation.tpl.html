@@ -1,0 +1,25 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2 ng-if="!app.currentUser">Sign In</h2>
+        <md-list ng-if="app.currentUser">
+            <md-list-item>
+                <img class="md-avatar" ng-src="{{app.currentUser.google.cachedUserProfile.picture}}" height="100">
+                <div class="md-list-item-text">
+                    <h2>{{app.currentUser.google.displayName}}</h2>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
+</md-toolbar>
+<md-content flex class="md-default-theme">
+    <md-button ng-if="!app.currentUser" class="md-raised md-accent" ng-click="app.googleLogin()">Google</md-button>
+    <md-list ng-if="app.currentUser">
+        <md-list-item ng-click="app.go('orders')">
+            <h3>Orders</h3>
+        </md-list-item>
+        <md-list-item ng-click="app.go('menus.list')">
+            <h3>Menus</h3>
+        </md-list-item>
+    </md-list>
+</md-content>
+

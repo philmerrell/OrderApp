@@ -1,0 +1,13 @@
+<md-content class="md-padding">
+    <md-list>
+        <md-subheader class="md-no-sticky">Sandwiches</md-subheader>
+        <md-list-item ng-repeat="sandwich in vm.menu" ng-click="app.$state.go('item', {Path: sandwich.Path})" md-no-ink class="md-2-line">
+            <img alt="" src="http://img2.timeinc.net/health/images/slides/eat-light-lunch-sandwich-400x400.jpg" class="md-avatar" />
+            <div class="md-list-item-text">
+                <h3>{{sandwich.Name}}</h3>
+                <p>${{sandwich.Price}}</p>
+            </div>
+            <md-icon md-svg-icon="assets/icons/add.svg" ng-click="vm.addToCart($event, sandwich)" aria-label="Add to Order" class="md-secondary md-hue-3"></md-icon>
+        </md-list-item>
+    </md-list>
+</md-content>

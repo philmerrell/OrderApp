@@ -1,0 +1,8 @@
+.item-select {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.item-select .md-select-label {
+    width: 100%;
+}

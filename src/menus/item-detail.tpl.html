@@ -1,0 +1,47 @@
+<div layout="row" layout-sm="column">
+    <md-card flex>
+        <img ng-src="{{vm.item.Image}}" width="100%">
+        <md-card-content>
+          <h1 class="md-headline" style="">{{vm.item.Name}} <small>${{vm.item.Price}}</small></h1>
+          <p>
+            <span ng-repeat="ingredient in vm.item.Ingredients">{{ingredient}}<span ng-if="!$last">,</span> </span>
+            <a href="#" class="md-primary">Edit Sandwich</a>
+          </p>
+        </md-card-content>
+        <div layout="row">
+            <md-button flex ng-click="vm.addToCart($event, vm.item)" class="md-accent md-raised">Add to order</md-button>
+        </div>
+    </md-card>
+    <md-card flex>
+        <md-card-content>
+            <h3>Choose Bread:</h3>
+            <md-select class="item-select" ng-model="vm.order.bread">
+                <md-option style="font-size: 2em;" ng-selected="bread === 'Multi-grain'" ng-repeat="bread in ['Multi-grain', 'Rye', 'Sourdough']" value="{{bread}}">{{bread}}</md-option>
+            </md-select>
+            <h3>Add Sides:</h3>
+            <md-select class="item-select" ng-model="vm.order.drink" placeholder="Choose your drink">
+                <md-option style="font-size: 2em;" ng-repeat="drink in ['Coke', 'Dr. Pepper', 'Water']" value="{{drink}}">{{drink}}</md-option>
+            </md-select>
+            <md-select class="item-select" ng-model="vm.order.chips" placeholder="Choose your chips">
+                <md-option style="font-size: 2em;" ng-repeat="chips in ['Baked', 'BBQ', 'Jalepeno']" value="{{chips}}">{{chips}}</md-option>
+            </md-select>
+            <md-select class="item-select" ng-model="vm.order.cookie" placeholder="Choose your cookie">
+                <md-option style="font-size: 2em;" ng-repeat="cookie in ['Chocolate Chip', 'Peanut Butter', 'Oatmeal Raisin']" value="{{cookie}}">{{cookie}}</md-option>
+            </md-select>
+        </md-card-content>
+    </md-card>
+</div>
+<h2 class="md-headline">Customize</h2>
+<div layout="row" layout-sm="column">
+    <div flex>
+        <md-list-item ng-repeat="topping in ['Real genoa salami', 'Italian capicola', 'smoked ham', 'provolone cheese', 'lettuce', 'tomato', 'onion', 'mayo', 'Italian vinaigrette']">
+            <p> {{ topping }} </p>
+            <md-switch class="md-secondary" ng-model="vm.topping[$index]"></md-switch>
+            <md-divider></md-divider>
+        </md-list-item>
+    </div>
+</div>
+<!--<div class="md-actions" layout="row" layout-align="right center">-->
+<!--<md-button class="md-raised md-accent">Requirements</md-button>-->
+<!--<md-button class="md-raised md-accent">Four-year Sequence</md-button>-->
+<!--</div>-->

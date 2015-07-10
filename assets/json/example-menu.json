@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Turkey Surprise",
+    "Price": 6.24,
+    "Bread": [
+      "Sour Dough", "7 Grain", "Rye", "Bagette"
+    ],
+    "Customizable": true,
+    "Ingredients": [
+      "Real genoa salami", "Italian capicola", "smoked ham", "provolone cheese", "lettuce", "tomato", "onion", "mayo", "Italian vinaigrette"
+    ],
+    "Image": "http://cds.arbys.com/images/menu/mf-turkey-swiss-sandwich-1024x557.jpg",
+    "Path": "turkey-surprise"
+  },
+  {
+    "Name": "Ham Delight",
+    "Price": 6.14,
+    "Bread": [
+      "Sour Dough", "7 Grain", "Rye", "Bagette"
+    ],
+    "Customizable": true,
+    "Ingredients": ["Ham", "provolone cheese", "lettuce", "tomato", "onion", "mayo"],
+    "Image": "http://krakusfoods.com/media/BAhbBlsHOgZmIisyMDExLzA0LzE4LzE4XzQzXzIwXzI0M19oZXJvUG9saXNoLmpwZw",
+    "Path": "ham-delight"
+  },
+  {
+    "Name": "Grilled Cheese",
+    "Price": 5.14,
+    "Bread": [
+      "Sour Dough", "7 Grain", "Rye", "Bagette"
+    ],
+    "Customizable": true,
+    "Ingredients": ["provolone cheese", "cheddar cheese", "tomato", "onion"],
+    "Image": "http://cdn1.lessonzone.com.au/Resources/103022/103022Z01_Grilled_cheese_sandwich01.jpg",
+    "Path": "grilled-cheese"
+  }
+
+]
