@@ -2,13 +2,17 @@ import _ from 'lodash';
 
 class CartService {
 
-  constructor($mdDialog, $mdToast, $state, $timeout) {
+  constructor($mdDialog, $mdMedia, $mdToast, $state, $timeout) {
     this.$mdDialog = $mdDialog;
+    this.$mdMedia = $mdMedia;
     this.$mdToast = $mdToast;
     this.$timeout = $timeout;
     this.$state = $state;
     this.cart = [];
+    this.order = {};
     this.total = 0;
+
+    this.firebasePath = null;
   }
 
   getOrderTotal() {
@@ -17,7 +21,11 @@ class CartService {
       total += item.Price;
     });
 
-    return total;
+    return total.toFixed(2);
+  }
+
+  getFirebasePath() {
+    return this.firebasePath;
   }
 
   addToCart(ev, items) {
@@ -34,11 +42,12 @@ class CartService {
   }
 
   showTotalToast() {
+    var position = this.$mdMedia('sm') ? 'bottom' : 'top right';
     return this.$mdToast.show({
       templateUrl: 'src/core/toast-total.tpl.html',
       controller: 'ToastTotalCtrl as vm',
       hideDelay: 0,
-      position: 'bottom'
+      position: position
     });
   }
 
@@ -60,6 +69,25 @@ class CartService {
       this.showTotalToast();
 
     });
+  }
+
+  completeOrder() {
+    this.order = {
+      user: {
+        first: 'Phil',
+        last: 'Merrell',
+        payment: 'Paypal'
+      },
+      cart: angular.copy(this.getCart()),
+      timeSubmitted: Firebase.ServerValue.TIMESTAMP,
+      total: this.getOrderTotal(),
+      deliveryAddress: '4613 Kendall St Boise, Id 83706',
+      orderStatus: 'Order submitted',
+      progress: 'Ordered'
+    };
+    var ref = new Firebase("https://philmerrell.firebaseio.com/orders/");
+    var id = ref.push(this.order);
+    this.firebasePath = id.path.n[1];
   }
 
 }

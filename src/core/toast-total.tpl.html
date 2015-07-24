@@ -7,5 +7,7 @@
     <md-button ng-if="vm.$state.current.name !== 'cart'" class="md-accent" ng-click="vm.go('cart')">
         Checkout
     </md-button>
-    <md-button ng-disabled="vm.processingOrder" ng-click="vm.pay($event)" ng-if="vm.$state.current.name === 'cart'" class="md-accent md-raised">Pay</md-button>
+    <md-button ng-disabled="vm.processingOrder" ng-click="vm.pay($event)" ng-if="vm.$state.current.name === 'cart'" class="md-accent md-raised">
+        Pay
+    </md-button>
 </md-toast>

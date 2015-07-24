@@ -1,0 +1,11 @@
+<md-content class="md-padding">
+    <h1 class="md-title">Ready For Delivery</h1>
+    <md-list>
+        <md-list-item ng-repeat="order in vm.orders | orderBy: 'timeSubmitted'">
+            <md-checkbox ng-model="message.selected"></md-checkbox>
+            <!--<h3>{{order.user.first+' '+order.user.last}} </h3>-->
+            <p>{{order.deliveryAddress}}</p>
+            <md-icon class="md-secondary" ng-click="" aria-label="Directions" md-svg-src="assets/icons/directions.svg"></md-icon>
+        </md-list-item>
+    </md-list>
+</md-content>

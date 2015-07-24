@@ -1,0 +1,41 @@
+<md-content class="md-padding">
+    <h1>Ready For Delivery</h1>
+    <md-list>
+        <md-list-item ng-repeat="order in vm.orders | orderBy: 'timeSubmitted'" class="md-2-line">
+            <img alt="{{ person.name }}" ng-src="{{ person.img }}" class="md-avatar" />
+            <div class="md-list-item-text">
+                <h2>{{order.user.first+' '+order.user.last}} </h2>
+                <p>{{order.deliveryAddress}}</p>
+            </div>
+            <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3"></md-icon>
+        </md-list-item>
+    </md-list>
+
+
+    <md-card ng-repeat="order in vm.orders | orderBy: 'timeSubmitted'">
+        <md-card-content>
+            <div>
+                <md-list>
+                    <md-list-item class="md-1-line">
+                        <div class="md-list-item-text">
+                            <h2>{{order.user.first+' '+order.user.last}} <small>${{order.total}}</small></h2>
+                            <p><a class="md-button" ng-href="https://www.google.com/maps?saddr=My+Location&daddr={{order.deliveryAddress}}">Directions</a></p>
+                        </div>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item ng-if="order.orderStatus === 'Acknowledged'" ng-repeat="item in order.cart" class="md-3-line">
+                        <img ng-src="{{item.Image}}" class="md-avatar" alt="{{item.Name}}" />
+                        <div class="md-list-item-text">
+                            <h3>{{ item.Name }}</h3>
+                            <p><span ng-repeat="ingredient in item.Ingredients">{{ingredient}}<span ng-if="!$last">,</span> </span></p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </div>
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="end center">
+            <md-button ng-if="order.orderStatus === 'Acknowledged'" ng-click="vm.readyForDelivery(order)">Ready For Delivery</md-button>
+            <md-button ng-if="order.orderStatus === 'Ready For Delivery'" ng-click="vm.enroute(order)">Ready For Delivery</md-button>
+        </div>
+    </md-card>
+</md-content>

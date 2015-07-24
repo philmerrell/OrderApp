@@ -15,7 +15,7 @@ System.config({
 
 System.config({
   "map": {
-    "angular": "github:angular/bower-angular@1.4.1",
+    "angular": "github:angular/bower-angular@1.4.3",
     "angular-material": "github:angular/bower-material@0.10.0",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "angularfire": "github:firebase/angularfire@1.1.2",
@@ -25,18 +25,18 @@ System.config({
     "firebase": "github:firebase/firebase-bower@2.2.7",
     "lodash": "npm:lodash@3.10.0",
     "github:angular-ui/ui-router@0.2.15": {
-      "angular": "github:angular/bower-angular@1.4.1"
+      "angular": "github:angular/bower-angular@1.4.3"
     },
-    "github:angular/bower-angular-animate@1.4.1": {
-      "angular": "github:angular/bower-angular@1.4.1"
+    "github:angular/bower-angular-animate@1.4.3": {
+      "angular": "github:angular/bower-angular@1.4.3"
     },
-    "github:angular/bower-angular-aria@1.4.1": {
-      "angular": "github:angular/bower-angular@1.4.1"
+    "github:angular/bower-angular-aria@1.4.3": {
+      "angular": "github:angular/bower-angular@1.4.3"
     },
     "github:angular/bower-material@0.10.0": {
-      "angular": "github:angular/bower-angular@1.4.1",
-      "angular-animate": "github:angular/bower-angular-animate@1.4.1",
-      "angular-aria": "github:angular/bower-angular-aria@1.4.1",
+      "angular": "github:angular/bower-angular@1.4.3",
+      "angular-animate": "github:angular/bower-angular-animate@1.4.3",
+      "angular-aria": "github:angular/bower-angular-aria@1.4.3",
       "css": "github:systemjs/plugin-css@0.1.13"
     },
     "github:jspm/nodelibs-process@0.1.1": {

@@ -1,0 +1,26 @@
+<style>
+    .trackOrder h2 {
+       color: #999;
+    }
+
+    .trackOrder .inProgress {
+        color: inherit !important;
+    }
+</style>
+
+<md-content class="md-padding trackOrder">
+    <h1 class="md-title">Track Order: {{vm.elapsedTime}}</h1>
+    <h2 class="md-display-1" ng-class="{inProgress: vm.order.orderStatus === 'Order submitted'}">
+        <md-icon ng-if="vm.order.orderStatus === 'Order submitted'" md-svg-src="assets/icons/check.svg"></md-icon> Order Submitted
+    </h2>
+    <h2 class="md-display-1" ng-class="{inProgress: vm.order.orderStatus === 'Acknowledged'}">
+        <md-icon ng-if="vm.order.orderStatus === 'Acknowledged'" md-svg-src="assets/icons/check.svg"></md-icon> Preparing Order
+    </h2>
+    <h2 class="md-display-1" ng-class="{inProgress: vm.order.orderStatus === 'Ready For Delivery'}">
+        <md-icon ng-if="vm.order.orderStatus === 'Ready For Delivery'" md-svg-src="assets/icons/check.svg"></md-icon> Ready For Delivery
+    </h2>
+    <h2 class="md-display-1">
+        <md-icon ng-if="vm.order.orderStatus === 'Delivery'" md-svg-src="assets/icons/check.svg"></md-icon> Delivering
+    </h2>
+
+</md-content>

@@ -1,34 +1,32 @@
-<md-select class="item-select" placeholder="Deliver to..." ng-model="vm.location">
-    <md-option>4613 Kendall St Boise Id 83706</md-option>
-    <md-option>New Address...</md-option>
-</md-select>
-<md-input-container flex>
-    <label>Add a note...</label>
-    <textarea ng-model="vm.note" columns="1" md-maxlength="150"></textarea>
+<div ng-if="!vm.cart.length"><p>Hey you dingus, you haven't ordered anything yet.</p>
+    <md-button ng-click="app.go('menus.list')" class="md-raised md-accent">menu</md-button>
+</div>
+<div ng-if="vm.cart.length">
+    <md-select class="item-select" placeholder="Deliver to..." ng-model="vm.location">
+        <md-option>4613 Kendall St Boise Id 83706</md-option>
+        <md-option>New Address...</md-option>
+    </md-select>
+    <md-select class="item-select" placeholder="Pay with..." ng-model="vm.payment">
+        <md-option>Paypal</md-option>
+        <md-option>Add payment method...</md-option>
+    </md-select>
+    <md-input-container flex>
+        <label>Add a note...</label>
+        <textarea ng-model="vm.note" columns="1" md-maxlength="150"></textarea>
 
-</md-input-container>
-<md-list>
-    <div ng-if="!vm.cart.length"><p>Hey you dingus, you haven't ordered anything yet.</p>
-        <md-button ng-click="app.go('menus.list')" class="md-raised md-accent">menu</md-button>
-    </div>
-    <md-list-item class="" ng-repeat="order in vm.cart track by $index">
-        <div>
-            <md-button ng-click="vm.removeItem(order)" class="md-fab md-primary md-mini"><md-icon md-svg-src="assets/icons/close.svg"></md-icon></md-button>
-        </div>
-        <div flex>
-            <p class="md-title">{{order.Name}}</p>
-        </div>
-        <div>
-            <md-button md-no-ink class="md-accent">edit</md-button> <strong class="">{{order.total}}</strong>
-        </div>
-    </md-list-item>
-</md-list>
-<!--<md-button class="md-accent md-fab md-fab-bottom-right"><md-icon md-svg-src="assets/icons/pay.svg"></md-icon><br>pay</md-button>-->
-<!--<div ng-repeat="order in vm.cart" layout="row">-->
-    <!--<div flex>-->
-        <!--{{order.name}}-->
-    <!--</div>-->
-    <!--<div>-->
-        <!--{{order.total}}-->
-    <!--</div>-->
-<!--</div>-->
+    </md-input-container>
+    <md-list>
+
+        <md-list-item class="" ng-repeat="order in vm.cart track by $index">
+            <div>
+                <md-button ng-click="vm.removeItem(order)" class="md-fab md-primary md-mini"><md-icon md-svg-src="assets/icons/close.svg"></md-icon></md-button>
+            </div>
+            <div flex>
+                <p class="md-title">{{order.Name}}</p>
+            </div>
+            <div>
+                <md-button md-no-ink class="md-accent">edit</md-button> <strong class="">{{order.Price}}</strong>
+            </div>
+        </md-list-item>
+    </md-list>
+</div>

@@ -26,9 +26,12 @@ class ToastTotalCtrl {
       parent: angular.element(document.body),
       targetEvent: ev
     });
+
+    this.cartService.completeOrder();
     this.$timeout(() => {
       this.processingOrder = false;
       this.$mdDialog.hide();
+      this.$state.go('trackOrder', {id: this.cartService.getFirebasePath()});
     }, 3000);
   }
 

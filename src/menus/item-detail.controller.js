@@ -8,8 +8,9 @@ class ItemDetailCtrl {
     this.menuService = MenuService;
     this.menu = [];
     this.item = {};
+    this.customize = false;
 
-    this.getMenu().then(menu =>{
+    this.getMenu().then(menu => {
       this.item = _.find(menu, { Path: $stateParams.Path });
       return this.item;
     });
